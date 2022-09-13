@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://localhost/cls.schema.json",
+  "$id": "https://raw.githubusercontent.com/mcjdev/mcjdev.github.io/main/cls.json.schema",
   "title": "Cargo Loading System (CLS)",
   "description": "CLS configuration",
   "type": "object",
@@ -12,7 +12,29 @@
     "partNumber": {
       "description": "Manufacturer's part number",
       "type": "string"
+    },
+    "clsName": {
+      "description": "Name of the CLS",
+      "type": "string"
+    },
+    "clsDescription": {
+      "description": "Descriptiong of the CLS",
+      "type": "string"
+    },
+    "cargoCompartments": {
+      "description": "Cargo compartments on the aircraft",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "balanceArmStart": { "type": "number" },
+          "balanceArmEnd": { "type": "number" },
+          "maxWeight": { "type": "number" }
+        },
+        "required": ["id","balanceArmStart", "balanceArmEnd", "maxWeight"]
+      }
     }
   },
-  "required": ["partNumber"]
+  "required": ["partNumber", "clsName"]
 }
